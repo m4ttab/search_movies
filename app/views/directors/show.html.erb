@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @director.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @director.description %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @director.date_of_birth %>
+</p>
+
+<p>
+  <strong>Place of birth:</strong>
+  <%= @director.place_of_birth %>
+</p>
+
+<p>
+  <strong>Film:</strong>
+  <%= @director.film.title %>
+</p>
+
+<%= link_to 'Edit', edit_director_path(@director) %> |
+<%= link_to 'Back', directors_path %>
