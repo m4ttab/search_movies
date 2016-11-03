@@ -25,5 +25,9 @@
   <%= @director.film.title %>
 </p>
 
+<%= render partial: "comments/form", locals: {commentable: @film} %>
+
+<%= render partial: "comments/comments", locals: {commentable: @director} %>
+
 <%= link_to 'Edit', edit_director_path(@director) %> |
 <%= link_to 'Back', directors_path %>

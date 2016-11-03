@@ -26,6 +26,9 @@
   <% end %>
 </p>
 
+<%= render partial: "comments/form", locals: {commentable: @film} %>
+
+<%= render partial: "comments/comments", locals: {commentable: @film} %>
 
 <%= link_to 'Edit', edit_film_path(@film) %> |
 <%= link_to 'Back', films_path %>
