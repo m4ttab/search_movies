@@ -1,2 +1,38 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Gloria+Hallelujah');
+
+body {
+  margin-bottom: 50px;
+  background-color: #E8E8E8;
+}
+
+
+.row {
+  margin: 0;
+}
+
+.navbar {
+  margin-bottom: 0px;
+  border-radius: 0px;
+
+}
+
+.less-margin {
+  margin-left: -105px;
+  margin-right: -105px;
+  margin-bottom: 30px;
+}
+
+.vertical {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.main_content {
+	padding: 0 0 50px 0;
+}
+
+#film_top {
+	margin-bottom: 50px;
+}

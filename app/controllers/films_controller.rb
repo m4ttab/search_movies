@@ -1,30 +1,26 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /films
-  # GET /films.json
+
   def index
-    @films = Film.all
+    @films = Film.all.order("created_at DESC")
   end
 
-  # GET /films/1
-  # GET /films/1.json
+
   def show
   end
 
-  # GET /films/new
   def new
-    @film = Film.new
+    @film = current_user.films.build
   end
 
-  # GET /films/1/edit
+  
   def edit
   end
 
-  # POST /films
-  # POST /films.json
   def create
-    @film = Film.new(film_params)
+    @film = current_user.films.build(film_params)
 
     respond_to do |format|
       if @film.save
@@ -37,8 +33,6 @@ class FilmsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /films/1
-  # PATCH/PUT /films/1.json
   def update
     respond_to do |format|
       if @film.update(film_params)
@@ -51,8 +45,7 @@ class FilmsController < ApplicationController
     end
   end
 
-  # DELETE /films/1
-  # DELETE /films/1.json
+
   def destroy
     @film.destroy
     respond_to do |format|

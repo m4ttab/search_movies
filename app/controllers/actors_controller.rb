@@ -1,30 +1,25 @@
 class ActorsController < ApplicationController
   before_action :set_actor, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
+ 
 
-  # GET /actors
-  # GET /actors.json
   def index
     @actors = Actor.all
   end
 
-  # GET /actors/1
-  # GET /actors/1.json
+
   def show
   end
 
-  # GET /actors/new
   def new
-    @actor = Actor.new
+    @actor = current_user.actors.build
   end
 
-  # GET /actors/1/edit
   def edit
   end
 
-  # POST /actors
-  # POST /actors.json
   def create
-    @actor = Actor.new(actor_params)
+    @actor = current_user.actors.build(actor_params)
 
     respond_to do |format|
       if @actor.save
@@ -37,8 +32,7 @@ class ActorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /actors/1
-  # PATCH/PUT /actors/1.json
+
   def update
     respond_to do |format|
       if @actor.update(actor_params)
@@ -51,8 +45,6 @@ class ActorsController < ApplicationController
     end
   end
 
-  # DELETE /actors/1
-  # DELETE /actors/1.json
   def destroy
     @actor.destroy
     respond_to do |format|
@@ -62,12 +54,11 @@ class ActorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_actor
       @actor = Actor.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def actor_params
       params.require(:actor).permit(:name, :description, :date_of_birth, :place_of_birth, :film_id)
     end

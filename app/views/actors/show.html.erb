@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @actor.name %>
@@ -22,7 +20,7 @@
 
 <p>
   <strong>Film:</strong>
-  <%= @actor.film.title %>
+  <%= @actor.film.title  %>
 </p>
 
 <%= render partial: "comments/form", locals: {commentable: @actor} %>

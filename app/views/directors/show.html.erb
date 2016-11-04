@@ -25,7 +25,7 @@
   <%= @director.film.title %>
 </p>
 
-<%= render partial: "comments/form", locals: {commentable: @film} %>
+<%= render partial: "comments/form", locals: {commentable: @director} %>
 
 <%= render partial: "comments/comments", locals: {commentable: @director} %>
 

@@ -1,15 +1,10 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Actors</h1>
 
-<table>
+<table class=" table table-hover">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Description</th>
       <th>Date of birth</th>
-      <th>Place of birth</th>
-      <th>Film</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,14 +12,8 @@
   <tbody>
     <% @actors.each do |actor| %>
       <tr>
-        <td><%= actor.name %></td>
-        <td><%= actor.description %></td>
+        <td><%= link_to actor.name, actor %></td>
         <td><%= actor.date_of_birth %></td>
-        <td><%= actor.place_of_birth %></td>
-        <td><%= actor.film.title %></td>
-        <td><%= link_to 'Show', actor %></td>
-        <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
-        <td><%= link_to 'Destroy', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

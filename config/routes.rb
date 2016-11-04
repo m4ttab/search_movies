@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   devise_for :users
   resources :directors do 
   	resources :comments, only: [:create], module: :directors
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
   	resources :comments, only: [:create], module: :actors
   end
 
-  root 'films#index' 
+  root 'home#index' 
 
 end

@@ -1,30 +1,23 @@
 class DirectorsController < ApplicationController
   before_action :set_director, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
-  # GET /directors
-  # GET /directors.json
   def index
     @directors = Director.all
   end
 
-  # GET /directors/1
-  # GET /directors/1.json
   def show
   end
 
-  # GET /directors/new
   def new
-    @director = Director.new
+    @director = current_user.directors.build
   end
 
-  # GET /directors/1/edit
   def edit
   end
 
-  # POST /directors
-  # POST /directors.json
   def create
-    @director = Director.new(director_params)
+    @director = current_user.directors.build(director_params)
 
     respond_to do |format|
       if @director.save
@@ -37,8 +30,6 @@ class DirectorsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /directors/1
-  # PATCH/PUT /directors/1.json
   def update
     respond_to do |format|
       if @director.update(director_params)
@@ -51,8 +42,6 @@ class DirectorsController < ApplicationController
     end
   end
 
-  # DELETE /directors/1
-  # DELETE /directors/1.json
   def destroy
     @director.destroy
     respond_to do |format|
@@ -62,12 +51,11 @@ class DirectorsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+  
     def set_director
       @director = Director.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def director_params
       params.require(:director).permit(:name, :description, :date_of_birth, :place_of_birth, :film_id)
     end

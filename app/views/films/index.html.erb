@@ -1,12 +1,7 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Films</h1>
-
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
       <th>Director:</th>
       <th colspan="4"></th>
     </tr>
@@ -15,15 +10,10 @@
   <tbody>
     <% @films.each do |film| %>
       <tr>
-        <td><%= film.title %></td>
-        <td><%= film.description %></td>
+        <td><%= link_to film.title, film %></td>  
           <% film.directors.each do |director| %>
             <td> <%= director.name %> </td>
           <% end %>
-
-        <td><%= link_to 'Show', film %></td>
-        <td><%= link_to 'Edit', edit_film_path(film) %></td>
-        <td><%= link_to 'Destroy', film, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -31,4 +21,5 @@
 
 <br>
 
-<%= link_to 'New Film', new_film_path %>
+<%= link_to 'New Film', new_film_path, class: "btn btn-default" %>
+

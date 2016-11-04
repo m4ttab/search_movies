@@ -1,0 +1,13 @@
+.jumbotron {
+  /* photo from google */
+  background: image-url('film-background.jpg') center no-repeat;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+  width: 100%;
+  min-height: 600px;
+  display: table;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

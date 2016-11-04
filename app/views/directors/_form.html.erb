@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= f.label :film_id %>
-    <%= f.text_field :film_id %>
+    <%= f.select :film_id, Film.all.map {|p| [p,p.id]} %>
   </div>
 
   <div class="actions">
