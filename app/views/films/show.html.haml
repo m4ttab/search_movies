@@ -20,9 +20,11 @@
             = link_to actor.name, actor_path(actor)
 
 
-= render partial: "comments/form", locals: {commentable: @film}
-
 = render partial: "comments/comments", locals: {commentable: @film}
 
-= link_to 'Edit', edit_film_path(@film), class: "btn btn-default" 
+= render partial: "comments/form", locals: {commentable: @film}
+
+%br/
+
+= link_to 'Edit film', edit_film_path(@film), class: "btn btn-default" 
 = link_to 'Back to films', films_path, class: "btn btn-default" 

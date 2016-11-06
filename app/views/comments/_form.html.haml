@@ -1,6 +1,9 @@
-= form_for [commentable, Comment.new] do |f|
+
+= form_for [commentable, Comment.new], html: {class: 'form-horizontal'} do |f|
 	
-	%div
-	= f.text_area :body, placeholder: "Add a comment"
-	%br/
-	= f.submit		 	
+	.form-group
+	.col-sm-3
+	= f.text_area :body, placeholder: "Add a comment", class: "form-control"
+
+	.form-group
+	= f.submit "Add comment", class: "btn btn-default"		 	

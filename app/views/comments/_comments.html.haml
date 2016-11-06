@@ -1,6 +1,8 @@
-%h4 Comments 
+%h4 #{commentable.comments.count} comments
 - commentable.comments.each_with_index do |comment, i|
-	%div
-		%strong= "No. #{i+1}"
-		= comment.body
+	.media
+		.comment
+			%h4 Comment by #{comment.user.email}
+			%p= comment.body
+		
 	
