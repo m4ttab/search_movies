@@ -1,0 +1,18 @@
+%h1 Directors
+
+%table.table.table-hover
+  %tr
+    %th Name
+    %th Date of birth
+    %th Place of birth
+      
+  %tbody>
+    - @directors.each do |director|
+      %tr
+        %td= link_to director.name, director
+        %td= director.date_of_birth
+        %td= director.place_of_birth
+
+%br/
+
+= link_to 'New Director', new_director_path, class: "btn btn-default"

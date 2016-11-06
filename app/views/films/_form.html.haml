@@ -1,0 +1,36 @@
+= form_for(film, html: {class: 'form-horizontal'}) do |f| 
+  - if film.errors.any? 
+    #error_explanation
+      %h2= pluralize(film.errors.count, "error") 
+      prohibited this film from being saved:
+
+      %ul
+      - film.errors.full_messages.each do |message|
+        %li= message
+
+
+  .form-group
+    = f.label :title, class: "col-sm-3 control-label"
+    .col-sm-6
+      = f.text_field :title, class: "form-control"
+
+  .form-group
+    = f.label :description, class: "col-sm-3 control-label"
+    .col-sm-6
+      = f.text_area :description, class: "form-control"
+
+  .form-group
+    = f.label :actor_id, class: "col-sm-3 control-label"
+    .col-sm-6
+      = f.collection_select :actor_id, Actor.all, :id, :name
+  
+
+  .form-group
+    = f.label :director_id, class: "col-sm-3 control-label"
+    .col-sm-6
+      = f.collection_select :director_id, Director.all, :id, :name
+  
+
+
+  .form-group
+    = f.submit "Create", class: "btn btn-default"

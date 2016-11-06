@@ -1,0 +1,27 @@
+%p
+  %strong Name:
+  = @actor.name
+
+%p
+  %strong Description:
+  = @actor.description
+
+%p
+  %strong Date of birth:
+  = @actor.date_of_birth
+
+
+%p
+  %strong Place of birth:
+  = @actor.place_of_birth
+
+
+%p
+  %strong Film:
+  = @actor.film.title
+
+= render partial: "comments/form", locals: {commentable: @actor}
+= render partial: "comments/comments", locals: {commentable: @actor}
+
+= link_to 'Edit', edit_actor_path(@actor), class: "btn btn-default"
+= link_to 'Back', actors_path, class: "btn btn-default"

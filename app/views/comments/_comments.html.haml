@@ -1,0 +1,5 @@
+%h4 Comments 
+- commentable.comments.each_with_index do |comment, i|
+	%div
+		%strong= "No. #{i+1}"
+		= comment.body

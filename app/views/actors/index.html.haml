@@ -1,0 +1,16 @@
+%h1 Actors
+
+%table.table.table-hover
+  %tr
+    %th Name
+    %th Date of birth
+
+  %tbody
+    - @actors.each do |actor|
+      %tr
+        %td= link_to actor.name, actor
+        %td= actor.date_of_birth
+
+%br/
+
+= link_to 'New Actor', new_actor_path, class: "btn btn-default"

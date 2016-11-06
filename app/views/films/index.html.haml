@@ -1,0 +1,13 @@
+.row
+  - @films.each do |film|
+    .col-md-3
+      .film
+        = link_to film.title, film
+        .text
+          = film.description
+
+  
+
+
+= link_to 'New Film', new_film_path, class: "btn btn-default"
+

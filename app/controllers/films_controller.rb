@@ -1,10 +1,10 @@
 class FilmsController < ApplicationController
   before_action :set_film, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
-
+  
 
   def index
-    @films = Film.all.order("created_at DESC")
+    @films = Film.all.order("title ASC")
   end
 
 
@@ -62,6 +62,6 @@ class FilmsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def film_params
-      params.require(:film).permit(:title, :description)
+      params.require(:film).permit(:title, :description, :actor_id, :director_id)
     end
 end

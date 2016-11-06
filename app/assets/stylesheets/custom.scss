@@ -36,3 +36,33 @@ body {
 #film_top {
 	margin-bottom: 50px;
 }
+
+.film {
+  margin: 10px 30px 30px 30px;
+  height: 250px;
+  width: 250px;
+  border: solid;
+  display: block;
+  text-align: center;
+  font-size: 22px;
+  background-color: #B2B2B2; 
+}
+
+.film a {
+  text-decoration: none;
+  color: white
+}
+
+.text {
+  height: 170px;
+  width: 240px;
+  color: white;
+  opacity: 0;
+  /*background-color: black*/
+}
+
+.film:hover .text {
+  opacity: 0.9;
+  text-align: center;
+  font-size: 15px
+}
