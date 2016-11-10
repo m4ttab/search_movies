@@ -11,6 +11,6 @@ class Film < ApplicationRecord
 	before_save :capitalize_title
 
 	def capitalize_title
-		title.capitalize!
+		self.title.capitalize!
 	end
 end

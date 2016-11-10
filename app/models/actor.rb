@@ -4,7 +4,7 @@ class Actor < ApplicationRecord
   belongs_to :user
 
 
-def to_S
+def to_s
 	"#{name}"
 end
 

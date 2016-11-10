@@ -19,8 +19,7 @@
             %ul
             = link_to actor.name, actor_path(actor)
 
-
-= render partial: "comments/comments", locals: {commentable: @film}
+= render "comments/comments", commentable: @film
 
 = render partial: "comments/form", locals: {commentable: @film}
 

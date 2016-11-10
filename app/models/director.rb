@@ -3,8 +3,8 @@ class Director < ApplicationRecord
   has_many :comments, as: :commentable
   belongs_to :user
 
-  def to_S
+  def to_s
   	"#{name}"
   end
-
 end
+  

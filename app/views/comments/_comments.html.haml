@@ -1,8 +1,9 @@
-%h4 #{commentable.comments.count} comments
-- commentable.comments.each_with_index do |comment, i|
-	.media
-		.comment
-			%h4 Comment by #{comment.user.email}
-			%p= comment.body
+#comments
+	%h4 #{commentable.comments.count} comments
+	- commentable.comments.each_with_index do |comment, i|
+		.media
+			.comment
+				%h4 Comment by #{comment.user.email}
+				%p= comment.body
 		
 	

@@ -5,7 +5,11 @@ def create
 	@comment = @commentable.comments.new(comment_params)
 	@comment.user_id = current_user.id
 	@comment.save
-	redirect_to @commentable, notice: "Your comment was added"
+
+	respond_to do |format| 
+		format.html {redirect_to @commentable, notice: "Your comment was added"}
+
+	end
 end
 
 
